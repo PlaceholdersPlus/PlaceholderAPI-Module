@@ -8,14 +8,17 @@ targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
+    jcenter()
     maven { url 'https://jitpack.io' }
     maven { url 'https://hub.spigotmc.org/nexus/content/groups/public/' }
     maven { url 'http://repo.extendedclip.com/content/repositories/placeholderapi/' }
 }
 
 dependencies {
-    compile 'com.github.Vankka.PlaceholdersPlus:placeholdersplus-common:8ad5635eb4'
+    compile('com.github.Vankka.PlaceholdersPlus:placeholdersplus-common:8ad5635eb4') {
+        exclude group: 'net.kyori'
+    }
     compile 'org.bukkit:bukkit:1.13.2-R0.1-SNAPSHOT'
 
-    compile 'me.clip:placeholderapi:2.9.2'
+    compile 'me.clip:placeholderapi:2.10.9'
 }

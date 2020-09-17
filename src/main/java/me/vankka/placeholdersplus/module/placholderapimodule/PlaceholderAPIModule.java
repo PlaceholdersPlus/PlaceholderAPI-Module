@@ -12,18 +12,18 @@ import java.util.List;
 
 public class PlaceholderAPIModule extends PlaceholdersPlusModule implements PlaceholderReplacer {
 
+    private final PlaceholdersPlusHook hook = new PlaceholdersPlusHook(placeholderHook);
+
     @Override
     public void enable(PlaceholdersPlusPlugin plugin) {
         placeholderHook.addPlaceholderReplacers(this);
-
-        PlaceholderAPI.registerPlaceholderHook("placeholdersplus", new PlaceholdersPlusHook(placeholderHook));
+        hook.register();
     }
 
     @Override
     public void disable(PlaceholdersPlusPlugin plugin) {
         placeholderHook.removePlaceholderReplacers(this);
-
-        PlaceholderAPI.unregisterPlaceholderHook("placeholdersplus");
+        hook.unregister();
     }
 
     @Override
